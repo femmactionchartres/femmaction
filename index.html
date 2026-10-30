@@ -46,8 +46,8 @@
         }
 
         .logo-placeholder {
-            width: 100px;
-            height: 100px;
+            width: 110px;
+            height: 110px;
             background-color: var(--blanc);
             border-radius: 50%;
             display: flex;
@@ -62,11 +62,6 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-        }
-
-        .logo-placeholder i {
-            font-size: 3rem;
-            color: var(--rouge-primaire);
         }
 
         header h1 {
@@ -84,7 +79,7 @@
         }
 
         .container {
-            max-width: 960px;
+            max-width: 1000px;
             margin: 40px auto;
             padding: 0 20px;
         }
@@ -116,6 +111,7 @@
             border-radius: 2px;
         }
 
+        /* Grille des Projets */
         .projets-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -146,6 +142,41 @@
             color: var(--violet-profond);
         }
 
+        /* Galerie Photos & Sorties */
+        .galerie-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+        }
+
+        .galerie-item {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            background: #f5f5f5;
+        }
+
+        .galerie-item img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s;
+        }
+
+        .galerie-item img:hover {
+            transform: scale(1.05);
+        }
+
+        .galerie-item p {
+            padding: 10px;
+            font-size: 0.85rem;
+            text-align: center;
+            font-weight: 600;
+            color: var(--fuchsia-sombre);
+        }
+
+        /* Avis & Témoignages */
         .avis-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -169,6 +200,7 @@
             margin-top: 10px;
         }
 
+        /* Réseaux Sociaux & Contact */
         .reseaux-container {
             text-align: center;
             padding: 10px 0;
@@ -227,8 +259,7 @@
     <header>
         <div class="header-content">
             <div class="logo-placeholder">
-                <img src="logo.jpg" alt="Logo Femmaction Chartres" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                <i class="fas fa-hands-helping" style="display:none;"></i>
+                <img src="logo.jpg.jpg" alt="Logo Femmaction Chartres" onerror="this.src='logo.jpg';">
             </div>
             <h1>Femmaction Chartres</h1>
             <p class="tagline">Solidarité & Émancipation des Femmes</p>
@@ -237,6 +268,7 @@
 
     <div class="container">
         
+        <!-- Nos Projets -->
         <section id="projets">
             <h2 class="section-title">Nos Actions & Dispositifs</h2>
             <div class="projets-grid">
@@ -259,8 +291,36 @@
             </div>
         </section>
 
+        <!-- Galerie des Sorties & Ateliers -->
+        <section id="galerie">
+            <h2 class="section-title">Nos Ateliers & Sorties</h2>
+            <div class="galerie-grid">
+                <div class="galerie-item">
+                    <img src="cours_francais.jpg.jpg" alt="Cours de français" onerror="this.src='cours_francais.jpg';">
+                    <p>Cours de Français</p>
+                </div>
+                <div class="galerie-item">
+                    <img src="ensemble_fortes.jpg.jpg" alt="Ensemble Fortes" onerror="this.src='ensemble_fortes.jpg';">
+                    <p>Ensemble Fortes</p>
+                </div>
+                <div class="galerie-item">
+                    <img src="loreal_interieur.jpg.jpg" alt="Atelier L'Oréal" onerror="this.src='loreal_interieur.jpg';">
+                    <p>Atelier L'Oréal</p>
+                </div>
+                <div class="galerie-item">
+                    <img src="loreal_soin.jpg.jpg" alt="Soin et Bien-être" onerror="this.src='loreal_soin.jpg';">
+                    <p>Soin & Bien-être</p>
+                </div>
+                <div class="galerie-item">
+                    <img src="loreal_van.jpg.jpg" alt="Sortie L'Oréal" onerror="this.src='loreal_van.jpg';">
+                    <p>Sortie L'Oréal Van</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Témoignages & Avis -->
         <section id="avis">
-            <h2 class="section-title">Témoignages</h2>
+            <h2 class="section-title">Témoignages & Avis</h2>
             <div class="avis-grid">
                 <div class="avis-card">
                     <p>&laquo; Grâce au projet Rebondir, j'ai retrouvé l'élan nécessaire pour reprendre une formation et rebâtir mes projets en toute sérénité. &raquo;</p>
@@ -273,9 +333,10 @@
             </div>
         </section>
 
+        <!-- Réseaux Sociaux & Contact -->
         <section id="contact" style="text-align: center;">
-            <h2 class="section-title" style="display: inline-block;">Rejoignez-nous</h2>
-            <p style="margin-top: 15px;">Suivez nos événements, actualités et actions au quotidien :</p>
+            <h2 class="section-title" style="display: inline-block;">Suivez-nous</h2>
+            <p style="margin-top: 15px;">Restez connectées avec nos événements, nos sorties et nos actions au quotidien :</p>
             
             <div class="reseaux-container">
                 <div class="reseaux-links">
