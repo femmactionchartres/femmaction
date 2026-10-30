@@ -1,8 +1,3 @@
-
-FEMMACTION CHARTRES <femmactionchartres@gmail.com>
-02:52 (il y a 0 minute)
-À moi
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -34,7 +29,6 @@ FEMMACTION CHARTRES <femmactionchartres@gmail.com>
             line-height: 1.6;
         }
 
-        /* Entête & Navigation */
         header {
             background: linear-gradient(135deg, var(--rouge-primaire), var(--violet-profond));
             color: var(--blanc);
@@ -89,14 +83,12 @@ FEMMACTION CHARTRES <femmactionchartres@gmail.com>
             opacity: 0.95;
         }
 
-        /* Conteneur principal */
         .container {
             max-width: 960px;
             margin: 40px auto;
             padding: 0 20px;
         }
 
-        /* Cards & Sections */
         section {
             background: var(--blanc);
             border-radius: 12px;
@@ -124,7 +116,6 @@ FEMMACTION CHARTRES <femmactionchartres@gmail.com>
             border-radius: 2px;
         }
 
-        /* Grille des projets */
         .projets-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -136,12 +127,6 @@ FEMMACTION CHARTRES <femmactionchartres@gmail.com>
             border-top: 4px solid var(--rouge-primaire);
             border-radius: 8px;
             padding: 20px;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .projet-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.08);
         }
 
         .projet-card.bel-air {
@@ -161,7 +146,6 @@ FEMMACTION CHARTRES <femmactionchartres@gmail.com>
             color: var(--violet-profond);
         }
 
-        /* Section Témoignages */
         .avis-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -174,11 +158,6 @@ FEMMACTION CHARTRES <femmactionchartres@gmail.com>
             padding: 20px;
             border-radius: 4px;
             font-style: italic;
-            position: relative;
-        }
-
-        .avis-card p {
-            margin-bottom: 10px;
         }
 
         .avis-card .auteur {
@@ -187,9 +166,9 @@ FEMMACTION CHARTRES <femmactionchartres@gmail.com>
             color: var(--violet-profond);
             text-align: right;
             font-size: 0.9rem;
+            margin-top: 10px;
         }
 
-        /* Réseaux sociaux & Bouton de contact */
         .reseaux-container {
             text-align: center;
             padding: 10px 0;
@@ -209,5 +188,111 @@ FEMMACTION CHARTRES <femmactionchartres@gmail.com>
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            background-
+            background-color: var(--violet-profond);
+            color: var(--blanc);
+            font-size: 1.4rem;
+            text-decoration: none;
+            transition: background-color 0.3s, transform 0.2s;
+        }
 
+        .reseaux-links a:hover {
+            background-color: var(--rouge-primaire);
+            transform: scale(1.1);
+        }
+
+        .btn-action {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--rouge-primaire), var(--fuchsia-sombre));
+            color: var(--blanc);
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 20px;
+            box-shadow: 0 4px 10px rgba(210, 27, 0, 0.3);
+        }
+
+        footer {
+            background-color: #1a1a1a;
+            color: #b3b3b3;
+            text-align: center;
+            padding: 25px 20px;
+            font-size: 0.85rem;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-content">
+            <div class="logo-placeholder">
+                <img src="logo.jpg" alt="Logo Femmaction Chartres" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <i class="fas fa-hands-helping" style="display:none;"></i>
+            </div>
+            <h1>Femmaction Chartres</h1>
+            <p class="tagline">Solidarité & Émancipation des Femmes</p>
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <section id="projets">
+            <h2 class="section-title">Nos Actions & Dispositifs</h2>
+            <div class="projets-grid">
+                
+                <div class="projet-card">
+                    <h3><i class="fas fa-life-ring"></i> SOS Femmes</h3>
+                    <p>Un espace d'écoute attentive, d'urgence et d'orientation directe pour assurer un accompagnement en toute sécurité.</p>
+                </div>
+
+                <div class="projet-card">
+                    <h3><i class="fas fa-seedling"></i> Projet Rebondir</h3>
+                    <p>Des ateliers et un suivi sur-mesure pour réinventer son parcours professionnel, regagner confiance et réussir ses démarches.</p>
+                </div>
+
+                <div class="projet-card bel-air">
+                    <h3><i class="fas fa-map-marker-alt"></i> Antenne Bel-Air</h3>
+                    <p>L'ouverture de notre nouvel espace de proximité au cœur du quartier Bel-Air pour un accueil chaleureux et sans rendez-vous.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="avis">
+            <h2 class="section-title">Témoignages</h2>
+            <div class="avis-grid">
+                <div class="avis-card">
+                    <p>&laquo; Grâce au projet Rebondir, j'ai retrouvé l'élan nécessaire pour reprendre une formation et rebâtir mes projets en toute sérénité. &raquo;</p>
+                    <div class="auteur">- Une participante</div>
+                </div>
+                <div class="avis-card">
+                    <p>&laquo; L'ouverture de l'antenne à Bel-Air permet un véritable accompagnement de proximité. Une présence rassurante et bienveillante pour toutes. &raquo;</p>
+                    <div class="auteur">- Une habitante du quartier</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" style="text-align: center;">
+            <h2 class="section-title" style="display: inline-block;">Rejoignez-nous</h2>
+            <p style="margin-top: 15px;">Suivez nos événements, actualités et actions au quotidien :</p>
+            
+            <div class="reseaux-container">
+                <div class="reseaux-links">
+                    <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <br>
+                <a href="mailto:contact@femmactionchartres.fr" class="btn-action">Nous Contacter</a>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Femmaction Chartres — Tous droits réservés.</p>
+    </footer>
+
+</body>
+</html>
