@@ -1,371 +1,727 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Femmaction Chartres - Solidarité et Émancipation des Femmes</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --rouge-primaire: #D21B00;
-            --fuchsia-sombre: #AD1457;
-            --violet-profond: #6A189A;
-            --fond-clair: #fdfbfb;
-            --texte-fonce: #2d2d2d;
-            --blanc: #ffffff;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--fond-clair);
-            color: var(--texte-fonce);
-            line-height: 1.6;
-        }
-
-        /* Entête */
-        header {
-            background: linear-gradient(135deg, var(--rouge-primaire), var(--violet-profond));
-            color: var(--blanc);
-            padding: 40px 20px;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-        }
-
-        .header-content {
-            max-width: 900px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .logo-placeholder {
-            width: 110px;
-            height: 110px;
-            background-color: var(--blanc);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-            overflow: hidden;
-        }
-
-        .logo-placeholder img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        header h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 5px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        header p.tagline {
-            font-size: 1.2rem;
-            font-weight: 300;
-            opacity: 0.95;
-        }
-
-        /* Conteneur */
-        .container {
-            max-width: 1000px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-
-        section {
-            background: var(--blanc);
-            border-radius: 12px;
-            padding: 35px;
-            margin-bottom: 30px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        }
-
-        h2.section-title {
-            color: var(--rouge-primaire);
-            font-size: 1.8rem;
-            margin-bottom: 25px;
-            position: relative;
-            padding-bottom: 10px;
-        }
-
-        h2.section-title::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 60px;
-            height: 4px;
-            background: linear-gradient(to right, var(--rouge-primaire), var(--violet-profond));
-            border-radius: 2px;
-        }
-
-        /* Dispositifs & Projets */
-        .projets-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 20px;
-        }
-
-        .projet-card {
-            background: #fff8f8;
-            border-top: 4px solid var(--rouge-primaire);
-            border-radius: 8px;
-            padding: 20px;
-            transition: transform 0.2s;
-        }
-
-        .projet-card:hover {
-            transform: translateY(-3px);
-        }
-
-        .projet-card.bel-air {
-            border-top-color: var(--violet-profond);
-            background: #fcf8ff;
-        }
-
-        .projet-card h3 {
-            color: var(--fuchsia-sombre);
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .projet-card.bel-air h3 {
-            color: var(--violet-profond);
-        }
-
-        /* Galerie Photos & Sorties */
-        .galerie-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
-        }
-
-        .galerie-item {
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-            background: #f9f9f9;
-            transition: transform 0.3s;
-        }
-
-        .galerie-item:hover {
-            transform: scale(1.02);
-        }
-
-        .galerie-item img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            display: block;
-        }
-
-        .galerie-item p {
-            padding: 12px;
-            font-size: 0.9rem;
-            text-align: center;
-            font-weight: 600;
-            color: var(--fuchsia-sombre);
-        }
-
-        /* Avis & Témoignages */
-        .avis-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-        }
-
-        .avis-card {
-            background: #f9f9f9;
-            border-left: 4px solid var(--fuchsia-sombre);
-            padding: 20px;
-            border-radius: 4px;
-            font-style: italic;
-        }
-
-        .avis-card .auteur {
-            font-style: normal;
-            font-weight: 600;
-            color: var(--violet-profond);
-            text-align: right;
-            font-size: 0.9rem;
-            margin-top: 10px;
-        }
-
-        /* Réseaux Sociaux & Contact */
-        .reseaux-container {
-            text-align: center;
-            padding: 10px 0;
-        }
-
-        .reseaux-links {
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            margin-top: 20px;
-        }
-
-        .reseaux-links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background-color: var(--violet-profond);
-            color: var(--blanc);
-            font-size: 1.4rem;
-            text-decoration: none;
-            transition: background-color 0.3s, transform 0.2s;
-        }
-
-        .reseaux-links a:hover {
-            background-color: var(--rouge-primaire);
-            transform: scale(1.1);
-        }
-
-        .btn-action {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--rouge-primaire), var(--fuchsia-sombre));
-            color: var(--blanc);
-            padding: 12px 30px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 600;
-            margin-top: 20px;
-            box-shadow: 0 4px 10px rgba(210, 27, 0, 0.3);
-            transition: opacity 0.3s;
-        }
-
-        .btn-action:hover {
-            opacity: 0.9;
-        }
-
-        footer {
-            background-color: #1a1a1a;
-            color: #b3b3b3;
-            text-align: center;
-            padding: 25px 20px;
-            font-size: 0.85rem;
-            margin-top: 40px;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Femmaction Chartres - Solidarité et Accompagnement</title>
+<!-- Google Fonts: Poppins -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap">
+<!-- Font Awesome Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+​<style>
+:root {
+--rouge-primaire: #D21B00;
+--fuchsia-sombre: #AD1457;
+--violet-profond: #6A189A;
+--fond-clair: #fdfbfb;
+--texte-fonce: #2d2d2d;
+--texte-doux: #5a5a5a;
+--blanc: #ffffff;
+--vert-helloasso: #37b34a;
+--shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.05);
+--shadow-md: 0 8px 24px rgba(0, 0, 0, 0.08);
+--shadow-lg: 0 15px 35px rgba(106, 24, 154, 0.12);
+--transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+​* {
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+}
+​html {
+scroll-behavior: smooth;
+}
+​body {
+font-family: 'Poppins', sans-serif;
+background-color: var(--fond-clair);
+color: var(--texte-fonce);
+line-height: 1.7;
+overflow-x: hidden;
+}
+​header {
+background: linear-gradient(135deg, var(--rouge-primaire), var(--violet-profond));
+color: var(--blanc);
+position: sticky;
+top: 0;
+z-index: 1000;
+box-shadow: var(--shadow-md);
+}
+​.header-content {
+max-width: 1200px;
+margin: 0 auto;
+padding: 15px 25px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+​.brand-logo {
+display: flex;
+align-items: center;
+gap: 15px;
+text-decoration: none;
+color: var(--blanc);
+}
+​.logo-placeholder {
+width: 60px;
+height: 60px;
+background-color: var(--blanc);
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+overflow: hidden;
+border: 2px solid rgba(255, 255, 255, 0.8);
+transition: var(--transition);
+}
+​.logo-placeholder:hover {
+transform: scale(1.05);
+}
+​.logo-placeholder img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+}
+​.brand-title {
+display: flex;
+flex-direction: column;
+}
+​.brand-title h1 {
+font-size: 1.5rem;
+font-weight: 800;
+text-transform: uppercase;
+letter-spacing: 1px;
+line-height: 1.1;
+}
+​.brand-title span {
+font-size: 0.85rem;
+font-weight: 300;
+opacity: 0.9;
+}
+​nav ul {
+display: flex;
+list-style: none;
+gap: 20px;
+}
+​nav a {
+color: var(--blanc);
+text-decoration: none;
+font-weight: 500;
+font-size: 0.95rem;
+padding: 8px 14px;
+border-radius: 20px;
+transition: var(--transition);
+}
+​nav a:hover {
+background-color: rgba(255, 255, 255, 0.2);
+}
+​.hero-section {
+background: linear-gradient(135deg, rgba(253, 251, 251, 0.95), rgba(253, 242, 242, 0.9));
+padding: 80px 25px;
+border-bottom: 1px solid rgba(210, 27, 0, 0.1);
+}
+​.hero-container {
+max-width: 1200px;
+margin: 0 auto;
+display: grid;
+grid-template-columns: 1.2fr 1fr;
+gap: 50px;
+align-items: center;
+}
+​.hero-text h2 {
+font-size: 2.6rem;
+font-weight: 800;
+color: var(--rouge-primaire);
+margin-bottom: 20px;
+line-height: 1.2;
+}
+​.hero-text p {
+font-size: 1.1rem;
+margin-bottom: 25px;
+color: var(--texte-doux);
+font-weight: 400;
+}
+​.hero-text p strong {
+color: var(--violet-profond);
+}
+​.hero-badges {
+display: flex;
+gap: 15px;
+margin-bottom: 30px;
+flex-wrap: wrap;
+}
+​.badge {
+background: rgba(210, 27, 0, 0.08);
+color: var(--rouge-primaire);
+padding: 8px 16px;
+border-radius: 20px;
+font-size: 0.85rem;
+font-weight: 600;
+display: flex;
+align-items: center;
+gap: 8px;
+}
+​.hero-image-wrapper {
+position: relative;
+text-align: center;
+}
+​.hero-image-wrapper::before {
+content: '';
+position: absolute;
+top: -15px;
+left: -15px;
+right: 15px;
+bottom: 15px;
+border: 3px solid var(--fuchsia-sombre);
+border-radius: 20px;
+z-index: 1;
+opacity: 0.3;
+}
+​.hero-image-wrapper img {
+width: 100%;
+max-width: 480px;
+border-radius: 16px;
+box-shadow: var(--shadow-lg);
+object-fit: cover;
+position: relative;
+z-index: 2;
+transition: var(--transition);
+}
+​.hero-image-wrapper img:hover {
+transform: translateY(-5px);
+}
+​.container {
+max-width: 1200px;
+margin: 60px auto;
+padding: 0 25px;
+}
+​section {
+background: var(--blanc);
+border-radius: 20px;
+padding: 45px;
+margin-bottom: 50px;
+box-shadow: var(--shadow-sm);
+border: 1px solid rgba(0,0,0,0.03);
+transition: var(--transition);
+}
+​section:hover {
+box-shadow: var(--shadow-md);
+}
+​h2.section-title {
+color: var(--rouge-primaire);
+font-size: 2rem;
+font-weight: 700;
+margin-bottom: 35px;
+position: relative;
+padding-bottom: 12px;
+display: flex;
+align-items: center;
+gap: 15px;
+}
+​h2.section-title::after {
+content: '';
+position: absolute;
+left: 0;
+bottom: 0;
+width: 80px;
+height: 4px;
+background: linear-gradient(to right, var(--rouge-primaire), var(--violet-profond));
+border-radius: 2px;
+}
+​.engagements-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+gap: 25px;
+}
+​.engagement-card {
+background: linear-gradient(135deg, #fffcfc, #fff5f5);
+border: 1px solid rgba(210, 27, 0, 0.12);
+border-radius: 14px;
+padding: 25px;
+box-shadow: var(--shadow-sm);
+transition: var(--transition);
+}
+​.engagement-card:hover {
+transform: translateY(-5px);
+box-shadow: var(--shadow-md);
+border-color: var(--rouge-primaire);
+}
+​.engagement-card i {
+font-size: 2rem;
+color: var(--rouge-primaire);
+margin-bottom: 15px;
+display: block;
+}
+​.engagement-card h4 {
+font-size: 1.15rem;
+font-weight: 700;
+color: var(--violet-profond);
+margin-bottom: 10px;
+}
+​.engagement-card p {
+font-size: 0.92rem;
+color: var(--texte-doux);
+line-height: 1.5;
+}
+​.projets-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+gap: 25px;
+}
+​.projet-card {
+background: #fff8f8;
+border-top: 5px solid var(--rouge-primaire);
+border-radius: 12px;
+padding: 30px;
+box-shadow: var(--shadow-sm);
+transition: var(--transition);
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+}
+​.projet-card:hover {
+transform: translateY(-8px);
+box-shadow: var(--shadow-md);
+}
+​.projet-card.rebondir {
+border-top-color: var(--fuchsia-sombre);
+background: #fff8fc;
+}
+​.projet-card.bel-air {
+border-top-color: var(--violet-profond);
+background: #fcf8ff;
+}
+​.projet-card-header {
+margin-bottom: 15px;
+}
+​.projet-card h3 {
+color: var(--rouge-primaire);
+font-size: 1.35rem;
+font-weight: 700;
+display: flex;
+align-items: center;
+gap: 12px;
+margin-bottom: 10px;
+}
+​.projet-card.rebondir h3 {
+color: var(--fuchsia-sombre);
+}
+​.projet-card.bel-air h3 {
+color: var(--violet-profond);
+}
+​.projet-card p {
+color: var(--texte-doux);
+font-size: 0.98rem;
+}
+​.projet-card .icon-box {
+width: 48px;
+height: 48px;
+border-radius: 12px;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 1.4rem;
+margin-bottom: 15px;
+}
+​.projet-card .icon-box.red { background: rgba(210, 27, 0, 0.1); color: var(--rouge-primaire); }
+.projet-card .icon-box.fuchsia { background: rgba(173, 20, 87, 0.1); color: var(--fuchsia-sombre); }
+.projet-card .icon-box.purple { background: rgba(106, 24, 154, 0.1); color: var(--violet-profond); }
+​.galerie-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+gap: 20px;
+}
+​.galerie-item {
+border-radius: 12px;
+overflow: hidden;
+box-shadow: var(--shadow-sm);
+background: var(--blanc);
+transition: var(--transition);
+position: relative;
+}
+​.galerie-item:hover {
+transform: scale(1.03);
+box-shadow: var(--shadow-md);
+}
+​.galerie-img-container {
+width: 100%;
+height: 180px;
+overflow: hidden;
+position: relative;
+}
+​.galerie-item img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+display: block;
+transition: transform 0.5s ease;
+}
+​.galerie-item:hover img {
+transform: scale(1.1);
+}
+​.galerie-caption {
+padding: 15px;
+font-size: 0.95rem;
+text-align: center;
+font-weight: 600;
+color: var(--fuchsia-sombre);
+background: var(--blanc);
+border-top: 1px solid #f0f0f0;
+}
+​.helloasso-card {
+background: linear-gradient(135deg, #f0fdf4, #e6f7eb);
+border: 2px dashed var(--vert-helloasso);
+border-radius: 16px;
+padding: 40px 30px;
+text-align: center;
+position: relative;
+overflow: hidden;
+}
+​.helloasso-card h3 {
+color: #278637;
+font-size: 1.6rem;
+margin-bottom: 15px;
+font-weight: 700;
+}
+​.helloasso-card p {
+font-size: 1.05rem;
+margin-bottom: 25px;
+color: #333;
+max-width: 700px;
+margin-left: auto;
+margin-right: auto;
+}
+​.btn-helloasso {
+display: inline-flex;
+align-items: center;
+gap: 12px;
+background-color: var(--vert-helloasso);
+color: var(--blanc);
+padding: 16px 36px;
+border-radius: 50px;
+text-decoration: none;
+font-weight: 700;
+font-size: 1.1rem;
+box-shadow: 0 6px 18px rgba(55, 179, 74, 0.35);
+transition: var(--transition);
+}
+​.btn-helloasso:hover {
+background-color: #2f9e40;
+transform: translateY(-3px) scale(1.02);
+}
+​.avis-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+gap: 25px;
+}
+​.avis-card {
+background: #fafafa;
+border-left: 5px solid var(--fuchsia-sombre);
+padding: 30px;
+border-radius: 12px;
+position: relative;
+box-shadow: var(--shadow-sm);
+transition: var(--transition);
+}
+​.avis-card:hover {
+transform: translateY(-4px);
+box-shadow: var(--shadow-md);
+}
+​.avis-card::before {
+content: '“';
+font-size: 4rem;
+color: var(--fuchsia-sombre);
+opacity: 0.15;
+position: absolute;
+top: 10px;
+left: 15px;
+line-height: 1;
+font-family: Georgia, serif;
+}
+​.avis-card p {
+font-style: italic;
+color: var(--texte-doux);
+margin-bottom: 15px;
+position: relative;
+z-index: 1;
+}
+​.avis-card .auteur {
+font-style: normal;
+font-weight: 700;
+color: var(--violet-profond);
+text-align: right;
+font-size: 0.95rem;
+}
+​.contact-box {
+text-align: center;
+padding: 20px 0;
+}
+​.reseaux-links {
+display: flex;
+justify-content: center;
+gap: 20px;
+margin: 25px 0 35px 0;
+}
+​.reseaux-links a {
+display: flex;
+align-items: center;
+justify-content: center;
+width: 55px;
+height: 55px;
+border-radius: 50%;
+background: linear-gradient(135deg, var(--violet-profond), var(--fuchsia-sombre));
+color: var(--blanc);
+font-size: 1.5rem;
+text-decoration: none;
+box-shadow: 0 4px 12px rgba(106, 24, 154, 0.25);
+transition: var(--transition);
+}
+​.reseaux-links a:hover {
+background: linear-gradient(135deg, var(--rouge-primaire), var(--fuchsia-sombre));
+transform: translateY(-5px) scale(1.1);
+}
+​.btn-action {
+display: inline-flex;
+align-items: center;
+gap: 10px;
+background: linear-gradient(135deg, var(--rouge-primaire), var(--fuchsia-sombre));
+color: var(--blanc);
+padding: 15px 35px;
+border-radius: 50px;
+text-decoration: none;
+font-weight: 700;
+font-size: 1.05rem;
+box-shadow: 0 6px 18px rgba(210, 27, 0, 0.3);
+transition: var(--transition);
+}
+​.btn-action:hover {
+transform: translateY(-3px);
+box-shadow: 0 10px 25px rgba(210, 27, 0, 0.4);
+}
+​footer {
+background-color: #1a1a1a;
+color: #b3b3b3;
+text-align: center;
+padding: 35px 20px;
+font-size: 0.9rem;
+border-top: 4px solid var(--rouge-primaire);
+}
+​footer p {
+margin-bottom: 8px;
+}
+​@media (max-width: 900px) {
+.hero-container {
+grid-template-columns: 1fr;
+gap: 35px;
+text-align: center;
+}
+​.hero-text h2 {
+font-size: 2.1rem;
+}
+​.hero-badges {
+justify-content: center;
+}
+​.header-content {
+flex-direction: column;
+gap: 15px;
+}
+​nav ul {
+flex-wrap: wrap;
+justify-content: center;
+}
+​section {
+padding: 25px 20px;
+}
+}
+</style>
 </head>
 <body>
-
-    <header>
-        <div class="header-content">
-            <div class="logo-placeholder">
-                <img src="logo.jpg.jpg" alt="Logo Femmaction Chartres" onerror="this.src='logo.jpg';">
-            </div>
-            <h1>Femmaction Chartres</h1>
-            <p class="tagline">Solidarité & Émancipation des Femmes</p>
-        </div>
-    </header>
-
-    <div class="container">
-        
-        <!-- Actions & Projets -->
-        <section id="projets">
-            <h2 class="section-title">Nos Actions & Dispositifs</h2>
-            <div class="projets-grid">
-                
-                <div class="projet-card">
-                    <h3><i class="fas fa-life-ring"></i> SOS Femmes</h3>
-                    <p>Un espace d'écoute attentive, d'urgence et d'orientation directe pour assurer un accompagnement en toute sécurité.</p>
-                </div>
-
-                <div class="projet-card">
-                    <h3><i class="fas fa-seedling"></i> Projet Rebondir</h3>
-                    <p>Des ateliers et un suivi sur-mesure pour réinventer son parcours professionnel, regagner confiance et réussir ses démarches.</p>
-                </div>
-
-                <div class="projet-card bel-air">
-                    <h3><i class="fas fa-map-marker-alt"></i> Antenne Bel-Air</h3>
-                    <p>L'ouverture de notre nouvel espace de proximité au cœur du quartier Bel-Air pour un accueil chaleureux et sans rendez-vous.</p>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- Galerie Photos Ateliers & Sorties -->
-        <section id="galerie">
-            <h2 class="section-title">Ateliers & Sorties en Images</h2>
-            <div class="galerie-grid">
-                <div class="galerie-item">
-                    <img src="cours_francais.jpg.jpg" alt="Cours de français" onerror="this.src='cours_francais.jpg';">
-                    <p>Cours de Français</p>
-                </div>
-                <div class="galerie-item">
-                    <img src="ensemble_fortes.jpg.jpg" alt="Ensemble Fortes" onerror="this.src='ensemble_fortes.jpg';">
-                    <p>Ensemble Fortes</p>
-                </div>
-                <div class="galerie-item">
-                    <img src="loreal_interieur.jpg.jpg" alt="Atelier L'Oréal" onerror="this.src='loreal_interieur.jpg';">
-                    <p>Atelier L'Oréal</p>
-                </div>
-                <div class="galerie-item">
-                    <img src="loreal_soin.jpg.jpg" alt="Soin et Bien-être" onerror="this.src='loreal_soin.jpg';">
-                    <p>Soin & Bien-être</p>
-                </div>
-                <div class="galerie-item">
-                    <img src="loreal_van.jpg.jpg" alt="Sortie L'Oréal Van" onerror="this.src='loreal_van.jpg';">
-                    <p>Sortie L'Oréal Van</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Témoignages & Avis -->
-        <section id="avis">
-            <h2 class="section-title">Témoignages & Avis</h2>
-            <div class="avis-grid">
-                <div class="avis-card">
-                    <p>&laquo; Grâce au projet Rebondir, j'ai retrouvé l'élan nécessaire pour reprendre une formation et rebâtir mes projets en toute sérénité. &raquo;</p>
-                    <div class="auteur">- Une participante</div>
-                </div>
-                <div class="avis-card">
-                    <p>&laquo; L'ouverture de l'antenne à Bel-Air permet un véritable accompagnement de proximité. Une présence rassurante et bienveillante pour toutes. &raquo;</p>
-                    <div class="auteur">- Une habitante du quartier</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Réseaux Sociaux & Contact -->
-        <section id="contact" style="text-align: center;">
-            <h2 class="section-title" style="display: inline-block;">Rejoignez-nous</h2>
-            <p style="margin-top: 15px;">Restez connectées avec nos événements, nos sorties et nos actions au quotidien :</p>
-            
-            <div class="reseaux-container">
-                <div class="reseaux-links">
-                    <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-                <br>
-                <a href="mailto:contact@femmactionchartres.fr" class="btn-action">Nous Contacter</a>
-            </div>
-        </section>
-
-    </div>
-
-    <footer>
-        <p>&copy; 2026 Femmaction Chartres — Tous droits réservés.</p>
-    </footer>
-
-</body>
-</html>
+​<header>
+<div class="header-content">
+<a href="#" class="brand-logo">
+<div class="logo-placeholder">
+<img src="logo.jpg" alt="Logo Femmaction Chartres" onerror="this.onerror=null; this.parentElement.innerHTML='<i class=\'fas fa-hands-holding-heart\' style=\'color:var(--rouge-primaire); font-size:1.8rem;\'></i>';">
+</div>
+<div class="brand-title">
+<h1>Femmaction</h1>
+<span>Ensemble, agissons !</span>
+</div>
+</a>
+<nav>
+<ul>
+<li><a href="#presentation">Accueil</a></li>
+<li><a href="#engagements">Engagements</a></li>
+<li><a href="#projets">Nos Actions</a></li>
+<li><a href="#galerie">Galerie</a></li>
+<li><a href="#soutenir">Soutenir</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+</div>
+</header>
+​<div class="hero-section" id="presentation">
+<div class="hero-container">
+<div class="hero-text">
+<div class="hero-badges">
+<span class="badge"><i class="fas fa-heart"></i> Engagement Associatif</span>
+<span class="badge"><i class="fas fa-map-marker-alt"></i> Chartres & Agglomération</span>
+</div>
+<h2>Ensemble, agissons !
+Pour l'accompagnement et l'entraide</h2>
+<p><strong>Femmaction Chartres</strong> est une association engagée qui œuvre au quotidien pour briser l'isolement, favoriser l'inclusion sociale et offrir un espace d'écoute inconditionnel aux femmes. Notre mission repose sur une dynamique de terrain forte, solidaire et humaine.</p>
+<a href="#contact" class="btn-action"><i class="fas fa-paper-plane"></i> Rejoindre nos actions</a>
+</div>
+<div class="hero-image-wrapper">
+<img src="ensemble_fortes.jpg" alt="Entraide et solidarité Femmaction" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&q=80&w=800';">
+</div>
+</div>
+</div>
+​<div class="container">
+​<section id="engagements">
+<h2 class="section-title"><i class="fas fa-hands-bound"></i> Nos Piliers & Engagements Concrets</h2>
+<div class="engagements-grid">
+<div class="engagement-card">
+<i class="fas fa-ear-listen"></i>
+<h4>Écoute & Confidentialité</h4>
+<p>Offrir un espace de parole sécurisé, sans jugement, où chaque femme peut exprimer ses difficultés et trouver une écoute professionnelle et bienveillante.</p>
+</div>
+<div class="engagement-card">
+<i class="fas fa-network-wired"></i>
+<h4>Partenariats de Terrain</h4>
+<p>Développer des synergies locales et institutionnelles fortes (acteurs sociaux, entreprises partenaires comme L'Oréal) pour multiplier les opportunités d'insertion et de bien-être.</p>
+</div>
+<div class="engagement-card">
+<i class="fas fa-people-group"></i>
+<h4>Lutte contre l'isolement</h4>
+<p>Créer du lien social à travers des ateliers collectifs, des sorties culturelles et sportives, et des permanences de proximité au cœur des quartiers de Chartres.</p>
+</div>
+<div class="engagement-card">
+<i class="fas fa-scale-balanced"></i>
+<h4>Autonomie & Citoyenneté</h4>
+<p>Favoriser l'autonomie par l'apprentissage de la langue française, l'accompagnement aux démarches du quotidien et la remobilisation vers l'emploi ou la formation.</p>
+</div>
+</div>
+</section>
+​<section id="projets">
+<h2 class="section-title"><i class="fas fa-shield-halved"></i> Nos Dispositifs Clés</h2>
+<div class="projets-grid">
+​<div class="projet-card">
+<div>
+<div class="icon-box red"><i class="fas fa-life-ring"></i></div>
+<div class="projet-card-header">
+<h3>SOS Femmes</h3>
+</div>
+<p>Un dispositif d'écoute attentive, de soutien immédiat et d'orientation directe pour accueillir, conseiller et protéger chaque femme en situation de vulnérabilité ou de besoin d'urgence.</p>
+</div>
+</div>
+​<div class="projet-card rebondir">
+<div>
+<div class="icon-box fuchsia"><i class="fas fa-seedling"></i></div>
+<div class="projet-card-header">
+<h3>Projet Rebondir</h3>
+</div>
+<p>Des ateliers thématiques de remobilisation et un suivi sur-mesure pour reconstruire son parcours professionnel, revaloriser ses compétences et regagner pleinement confiance en soi.</p>
+</div>
+</div>
+​<div class="projet-card bel-air">
+<div>
+<div class="icon-box purple"><i class="fas fa-building-user"></i></div>
+<div class="projet-card-header">
+<h3>Antenne Bel-Air</h3>
+</div>
+<p>Un espace d'accueil de proximité implanté au cœur du quartier Bel-Air, pensé pour créer du lien social, offrir une présence bienveillante et faciliter l'accès aux démarches sans rendez-vous.</p>
+</div>
+<div style="margin-top: 20px; padding: 12px; background: rgba(106, 24, 154, 0.08); border-radius: 8px; border-left: 3px solid var(--violet-profond);">
+<p style="font-size: 0.9rem; font-weight: 600; color: var(--violet-profond); margin-bottom: 4px;">
+<i class="fas fa-clock"></i> Horaires d'ouverture :
+</p>
+<p style="font-size: 0.88rem; color: var(--texte-doux); line-height: 1.4;">
+Tous les mercredis de 14:00 à 15:30
+(sauf vacances scolaires).
+</p>
+</div>
+</div>
+​</div>
+</section>
+​<section id="galerie">
+<h2 class="section-title"><i class="fas fa-camera-retro"></i> Ateliers & Sorties en Images</h2>
+<div class="galerie-grid">
+​<div class="galerie-item">
+<div class="galerie-img-container">
+<img src="cours_francais.jpg" alt="Cours de français" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=600';">
+</div>
+<div class="galerie-caption">Cours de Français</div>
+</div>
+​<div class="galerie-item">
+<div class="galerie-img-container">
+<img src="sport_sorties.jpg" alt="Sport et Sorties" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&q=80&w=600';">
+</div>
+<div class="galerie-caption">Sport & Sorties</div>
+</div>
+​<div class="galerie-item">
+<div class="galerie-img-container">
+<img src="loreal_interieur.jpg" alt="Atelier L'Oréal" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&q=80&w=600';">
+</div>
+<div class="galerie-caption">Atelier L'Oréal</div>
+</div>
+​<div class="galerie-item">
+<div class="galerie-img-container">
+<img src="loreal_soin.jpg" alt="Soin et Bien-être" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1560750588-73207b1ef5b8?auto=format&fit=crop&q=80&w=600';">
+</div>
+<div class="galerie-caption">Soin & Bien-être</div>
+</div>
+​<div class="galerie-item">
+<div class="galerie-img-container">
+<img src="loreal_van.jpg" alt="Sortie L'Oréal Van" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&q=80&w=600';">
+</div>
+<div class="galerie-caption">Sortie Van L'Oréal</div>
+</div>
+​</div>
+</section>
+​<section id="soutenir">
+<h2 class="section-title"><i class="fas fa-hand-holding-heart"></i> Soutenir Femmaction</h2>
+<div class="helloasso-card">
+<h3>Soutenez nos actions et devenez actrice du changement</h3>
+<p>Vous souhaitez contribuer à la pérennité de nos projets, faire un don ou adhérer à l'association ? Vous pouvez participer directement et en toute sécurité via notre espace dédié sur <strong>HelloAsso</strong>.</p>
+<a href="https://www.helloasso.com" target="_blank" rel="noopener noreferrer" class="btn-helloasso">
+<i class="fas fa-heart"></i> Faire un don / Adhérer sur HelloAsso
+</a>
+</div>
+</section>
+​<section id="avis">
+<h2 class="section-title"><i class="fas fa-comments"></i> Témoignages</h2>
+<div class="avis-grid">
+<div class="avis-card">
+<p>« Grâce au projet Rebondir, j'ai retrouvé l'élan et la confiance nécessaires pour reprendre une formation professionnelle et rebâtir mes projets en toute sérénité. »</p>
+<div class="auteur">Amina</div>
+</div>
+<div class="avis-card">
+<p>« L'ouverture de l'antenne à Bel-Air permet un véritable accompagnement de proximité. C'est une présence rassurante, chaleureuse et bienveillante pour toutes les femmes du quartier. »</p>
+<div class="auteur">Kenza</div>
+</div>
+<div class="avis-card">
+<p>« Un accompagnement humain et précieux qui nous redonne la parole, le sourire et la force d'avancer ensemble. »</p>
+<div class="auteur">Sarah</div>
+</div>
+</div>
+</section>
+​<section id="contact">
+<h2 class="section-title"><i class="fas fa-envelope-open-text"></i> Suivez-nous & Contact</h2>
+<div class="contact-box">
+<p style="font-size: 1.05rem; color: var(--texte-doux);">Restez connectées avec nos événements, nos sorties et l'actualité de nos projets au quotidien :</p>
+​<div class="reseaux-links">
+<a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+<a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+</div>
+​<a href="mailto:contact@femmactionchartres.fr" class="btn-action">
+<i class="fas fa-envelope"></i> Nous Contacter par E-mail
+</a>
+</div>
+</section>
+​</div>
+​<footer>
+<p>© 2026 Femmaction Chartres — Tous droits réservés.</p>
+<p>Association à but non lucratif — Ensemble, agissons ! Pour l'accompagnement et l'entraide.</p>
+</footer>
+​</body>
+</html> 
