@@ -1,172 +1,213 @@
+
+FEMMACTION CHARTRES <femmactionchartres@gmail.com>
+02:52 (il y a 0 minute)
+À moi
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Femmaction Chartres - Solidarité et Émancipation des Femmes</title>
-    <!-- Google Fonts & FontAwesome -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
     <style>
         :root {
-            --primary: #D81B60; /* Fuchsia / Magenta Femmaction */
-            --primary-dark: #AD1457; /* Fuchsia foncé */
-            --purple-deep: #6A1B9A; /* Violet profond */
-            --purple-dark: #4A148C; /* Violet très sombre */
-            --accent: #E91E63; /* Rose vif */
-            --bg-light: #FCE4EC; /* Rose très pâle */
-            --text-main: #2D3748;
-            --text-light: #718096;
-            --white: #FFFFFF;
-            --transition: all 0.3s ease;
+            --rouge-primaire: #D21B00;
+            --fuchsia-sombre: #AD1457;
+            --violet-profond: #6A189A;
+            --fond-clair: #fdfbfb;
+            --texte-fonce: #2d2d2d;
+            --blanc: #ffffff;
         }
 
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
         }
 
         body {
-            font-family: 'Inter', sans-serif, 'Poppins';
-            color: var(--text-main);
-            background-color: #FAFAFA;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        h1, h2, h3, h4, h5, h6 {
             font-family: 'Poppins', sans-serif;
-            font-weight: 600;
+            background-color: var(--fond-clair);
+            color: var(--texte-fonce);
+            line-height: 1.6;
         }
 
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        /* HEADER & NAVIGATION */
+        /* Entête & Navigation */
         header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 4px 20px rgba(106, 27, 154, 0.08);
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 5%;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--purple-deep);
-        }
-
-        .logo span {
-            color: var(--primary);
-        }
-
-        .logo-icon {
-            background: linear-gradient(135deg, var(--purple-deep), var(--primary));
-            color: var(--white);
-            width: 42px;
-            height: 42px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            box-shadow: 0 4px 10px rgba(216, 27, 96, 0.3);
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-            align-items: center;
-        }
-
-        nav a {
-            font-weight: 500;
-            color: var(--text-main);
-            transition: var(--transition);
-        }
-
-        nav a:hover {
-            color: var(--primary);
-        }
-
-        .social-header {
-            display: flex;
-            gap: 10px;
-            align-items: center;
-        }
-
-        .social-header a {
-            width: 34px;
-            height: 34px;
-            background: var(--bg-light);
-            color: var(--purple-deep);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.9rem;
-            transition: var(--transition);
-        }
-
-        .social-header a:hover {
-            background: var(--primary);
-            color: var(--white);
-            transform: translateY(-2px);
-        }
-
-        .btn-header {
-            background: linear-gradient(135deg, var(--primary), var(--purple-deep));
-            color: var(--white) !important;
-            padding: 0.6rem 1.5rem;
-            border-radius: 50px;
-            font-weight: 600;
-            box-shadow: 0 4px 15px rgba(216, 27, 96, 0.3);
-            transition: var(--transition);
-        }
-
-        .btn-header:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(216, 27, 96, 0.4);
-        }
-
-        /* HERO SECTION */
-        .hero {
-            position: relative;
-            padding: 13rem 5% 9rem 5%;
-            background: linear-gradient(135deg, var(--purple-dark) 0%, var(--purple-deep) 50%, var(--primary-dark) 100%);
-            color: var(--white);
+            background: linear-gradient(135deg, var(--rouge-primaire), var(--violet-profond));
+            color: var(--blanc);
+            padding: 40px 20px;
             text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .header-content {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .logo-placeholder {
+            width: 100px;
+            height: 100px;
+            background-color: var(--blanc);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
             overflow: hidden;
         }
 
-        .hero::before {
+        .logo-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .logo-placeholder i {
+            font-size: 3rem;
+            color: var(--rouge-primaire);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        header p.tagline {
+            font-size: 1.2rem;
+            font-weight: 300;
+            opacity: 0.95;
+        }
+
+        /* Conteneur principal */
+        .container {
+            max-width: 960px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* Cards & Sections */
+        section {
+            background: var(--blanc);
+            border-radius: 12px;
+            padding: 35px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        h2.section-title {
+            color: var(--rouge-primaire);
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        h2.section-title::after {
             content: '';
             position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle, rgba(233,30,99,0.25) 0%, transparent 70%);
+            left: 0;
+            bottom: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(to right, var(--rouge-primaire), var(--violet-profond));
+            border-radius: 2px;
         }
 
-        .hero-content {
+        /* Grille des projets */
+        .projets-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .projet-card {
+            background: #fff8f8;
+            border-top: 4px solid var(--rouge-primaire);
+            border-radius: 8px;
+            padding: 20px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .projet-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+        }
+
+        .projet-card.bel-air {
+            border-top-color: var(--violet-profond);
+            background: #fcf8ff;
+        }
+
+        .projet-card h3 {
+            color: var(--fuchsia-sombre);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .projet-card.bel-air h3 {
+            color: var(--violet-profond);
+        }
+
+        /* Section Témoignages */
+        .avis-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .avis-card {
+            background: #f9f9f9;
+            border-left: 4px solid var(--fuchsia-sombre);
+            padding: 20px;
+            border-radius: 4px;
+            font-style: italic;
             position: relative;
-            z-index: 2;
-            max-width: 850px;
-            margin: 0 auto;
         }
 
-        .badge-tag {
+        .avis-card p {
+            margin-bottom: 10px;
+        }
+
+        .avis-card .auteur {
+            font-style: normal;
+            font-weight: 600;
+            color: var(--violet-profond);
+            text-align: right;
+            font-size: 0.9rem;
+        }
+
+        /* Réseaux sociaux & Bouton de contact */
+        .reseaux-container {
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        .reseaux-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .reseaux-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-
 
