@@ -29,6 +29,7 @@
             line-height: 1.6;
         }
 
+        /* Entête */
         header {
             background: linear-gradient(135deg, var(--rouge-primaire), var(--violet-profond));
             color: var(--blanc);
@@ -78,6 +79,7 @@
             opacity: 0.95;
         }
 
+        /* Conteneur */
         .container {
             max-width: 1000px;
             margin: 40px auto;
@@ -111,7 +113,7 @@
             border-radius: 2px;
         }
 
-        /* Grille des Projets */
+        /* Dispositifs & Projets */
         .projets-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -123,6 +125,11 @@
             border-top: 4px solid var(--rouge-primaire);
             border-radius: 8px;
             padding: 20px;
+            transition: transform 0.2s;
+        }
+
+        .projet-card:hover {
+            transform: translateY(-3px);
         }
 
         .projet-card.bel-air {
@@ -146,14 +153,19 @@
         .galerie-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 15px;
+            gap: 20px;
         }
 
         .galerie-item {
             border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            background: #f5f5f5;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            background: #f9f9f9;
+            transition: transform 0.3s;
+        }
+
+        .galerie-item:hover {
+            transform: scale(1.02);
         }
 
         .galerie-item img {
@@ -161,16 +173,11 @@
             height: 180px;
             object-fit: cover;
             display: block;
-            transition: transform 0.3s;
-        }
-
-        .galerie-item img:hover {
-            transform: scale(1.05);
         }
 
         .galerie-item p {
-            padding: 10px;
-            font-size: 0.85rem;
+            padding: 12px;
+            font-size: 0.9rem;
             text-align: center;
             font-weight: 600;
             color: var(--fuchsia-sombre);
@@ -242,6 +249,11 @@
             font-weight: 600;
             margin-top: 20px;
             box-shadow: 0 4px 10px rgba(210, 27, 0, 0.3);
+            transition: opacity 0.3s;
+        }
+
+        .btn-action:hover {
+            opacity: 0.9;
         }
 
         footer {
@@ -268,7 +280,7 @@
 
     <div class="container">
         
-        <!-- Nos Projets -->
+        <!-- Actions & Projets -->
         <section id="projets">
             <h2 class="section-title">Nos Actions & Dispositifs</h2>
             <div class="projets-grid">
@@ -291,9 +303,9 @@
             </div>
         </section>
 
-        <!-- Galerie des Sorties & Ateliers -->
+        <!-- Galerie Photos Ateliers & Sorties -->
         <section id="galerie">
-            <h2 class="section-title">Nos Ateliers & Sorties</h2>
+            <h2 class="section-title">Ateliers & Sorties en Images</h2>
             <div class="galerie-grid">
                 <div class="galerie-item">
                     <img src="cours_francais.jpg.jpg" alt="Cours de français" onerror="this.src='cours_francais.jpg';">
@@ -312,7 +324,7 @@
                     <p>Soin & Bien-être</p>
                 </div>
                 <div class="galerie-item">
-                    <img src="loreal_van.jpg.jpg" alt="Sortie L'Oréal" onerror="this.src='loreal_van.jpg';">
+                    <img src="loreal_van.jpg.jpg" alt="Sortie L'Oréal Van" onerror="this.src='loreal_van.jpg';">
                     <p>Sortie L'Oréal Van</p>
                 </div>
             </div>
@@ -335,7 +347,7 @@
 
         <!-- Réseaux Sociaux & Contact -->
         <section id="contact" style="text-align: center;">
-            <h2 class="section-title" style="display: inline-block;">Suivez-nous</h2>
+            <h2 class="section-title" style="display: inline-block;">Rejoignez-nous</h2>
             <p style="margin-top: 15px;">Restez connectées avec nos événements, nos sorties et nos actions au quotidien :</p>
             
             <div class="reseaux-container">
